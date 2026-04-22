@@ -441,7 +441,12 @@ const Services = () => (
 
     <section className="py-24 max-w-7xl mx-auto px-6 divide-y divide-brand-light-gray">
       {[
-        { title: "AI Automation & Workflows", icon: <Brain />, content: "Our AI automation services help you streamline operations, reduce manual errors, and make data-driven decisions. From intelligent document processing to predictive analytics, we build solutions that learn and grow with your business." },
+        { 
+          title: "AI Automation & Workflows", 
+          icon: <Brain />, 
+          content: "Our AI automation services help you streamline operations, reduce manual errors, and make data-driven decisions. From intelligent document processing to predictive analytics, we build solutions that learn and grow with your business.",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776873697/9_AI_Automation_Workflows_wlhc1b.jpg"
+        },
         { title: "AI Services & Integration", icon: <Cpu />, content: "Integrate powerful AI capabilities into your existing ecosystem. We specialize in natural language processing (NLP), machine learning model deployment, and AI-powered recommendation systems." },
         { title: "Microsoft Power Platform", icon: <BarChart3 />, content: "Leverage the full potential of Microsoft's ecosystem. We develop custom Power Apps, automate complex workflows with Power Automate, and create interactive business intelligence reports with Power BI." },
         { title: "Data Engineering", icon: <Database />, content: "Unlock the value of your data. We design and implement robust data architectures, ETL pipelines, and cloud-native data warehouses using modern stacks like Snowflake, Azure, and AWS." },
@@ -464,7 +469,7 @@ const Services = () => (
           </div>
           <div className={`p-1 bg-brand-light-gray rounded-3xl ${i % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}>
             <div className="aspect-video bg-white rounded-[20px] shadow-sm flex items-center justify-center text-brand-blue overflow-hidden">
-               <img src={`https://picsum.photos/seed/${s.title}/800/450`} referrerPolicy="no-referrer" alt={s.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700" />
+               <img src={(s as any).image || `https://picsum.photos/seed/${s.title}/800/450`} referrerPolicy="no-referrer" alt={s.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700" />
             </div>
           </div>
         </div>
