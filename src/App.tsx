@@ -447,12 +447,42 @@ const Services = () => (
           content: "Our AI automation services help you streamline operations, reduce manual errors, and make data-driven decisions. From intelligent document processing to predictive analytics, we build solutions that learn and grow with your business.",
           image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776873697/9_AI_Automation_Workflows_wlhc1b.jpg"
         },
-        { title: "AI Services & Integration", icon: <Cpu />, content: "Integrate powerful AI capabilities into your existing ecosystem. We specialize in natural language processing (NLP), machine learning model deployment, and AI-powered recommendation systems." },
-        { title: "Microsoft Power Platform", icon: <BarChart3 />, content: "Leverage the full potential of Microsoft's ecosystem. We develop custom Power Apps, automate complex workflows with Power Automate, and create interactive business intelligence reports with Power BI." },
-        { title: "Data Engineering", icon: <Database />, content: "Unlock the value of your data. We design and implement robust data architectures, ETL pipelines, and cloud-native data warehouses using modern stacks like Snowflake, Azure, and AWS." },
-        { title: "Software Development", icon: <Code />, content: "Custom software tailored to your specific needs. From progressive web apps to native mobile applications, our engineering team delivers high-performance, secure, and scalable digital products." },
-        { title: "Testing & Quality Assurance", icon: <ShieldCheck />, content: "Reliability is at the core of our delivery. We provide comprehensive software testing services, including automated regression testing, performance audits, and user acceptance testing (UAT)." },
-        { title: "Business Analysis", icon: <Users />, content: "Bridging the gap between business needs and technical solutions. Our analysts help you define requirements, map processes, and ensure that every technology investment yields maximum ROI." }
+        { 
+          title: "AI Services & Integration", 
+          icon: <Cpu />, 
+          content: "Integrate powerful AI capabilities into your existing ecosystem. We specialize in natural language processing (NLP), machine learning model deployment, and AI-powered recommendation systems.",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776900567/1_AI_Services_Integration_nafnuf.jpg"
+        },
+        { 
+          title: "Microsoft Power Platform", 
+          icon: <BarChart3 />, 
+          content: "Leverage the full potential of Microsoft's ecosystem. We develop custom Power Apps, automate complex workflows with Power Automate, and create interactive business intelligence reports with Power BI.",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776900566/2_Microsoft_Power_Platform_mwogoh.jpg"
+        },
+        { 
+          title: "Data Engineering", 
+          icon: <Database />, 
+          content: "Unlock the value of your data. We design and implement robust data architectures, ETL pipelines, and cloud-native data warehouses using modern stacks like Snowflake, Azure, and AWS.",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776900566/3_Data_Engineering_rhwgdp.jpg"
+        },
+        { 
+          title: "Software Development", 
+          icon: <Code />, 
+          content: "Custom software tailored to your specific needs. From progressive web apps to native mobile applications, our engineering team delivers high-performance, secure, and scalable digital products.",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776900566/4_Software_Development_wyzwkr.jpg"
+        },
+        { 
+          title: "Testing & Quality Assurance", 
+          icon: <ShieldCheck />, 
+          content: "Reliability is at the core of our delivery. We provide comprehensive software testing services, including automated regression testing, performance audits, and user acceptance testing (UAT).",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776900566/5_Testing_Quality_Assurance_y5njdh.jpg"
+        },
+        { 
+          title: "Business Analysis", 
+          icon: <Users />, 
+          content: "Bridging the gap between business needs and technical solutions. Our analysts help you define requirements, map processes, and ensure that every technology investment yields maximum ROI.",
+          image: "https://res.cloudinary.com/dzcinges8/image/upload/v1776900566/6_Business_Analysis_dwtbea.jpg"
+        }
       ].map((s, i) => (
         <div key={i} className="py-20 grid lg:grid-cols-2 gap-12 items-center group">
           <div className={i % 2 === 0 ? "lg:order-1" : "lg:order-2"}>
@@ -512,14 +542,6 @@ const Industries = () => (
 );
 
 const Contact = () => {
-  const [formState, setFormState] = useState<'idle' | 'loading' | 'success'>('idle');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormState('loading');
-    setTimeout(() => setFormState('success'), 1500);
-  };
-
   return (
     <main className="pt-32 bg-brand-light-gray min-h-screen">
       <section className="py-24 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
@@ -558,64 +580,36 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="bg-white p-10 rounded-3xl shadow-2xl border border-brand-navy/5 relative">
-          <AnimatePresence mode="wait">
-            {formState === 'success' ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }} 
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-20"
-              >
-                <div className="w-20 h-20 bg-brand-sky rounded-full flex items-center justify-center text-brand-blue mx-auto mb-6">
-                  <ShieldCheck size={40} />
-                </div>
-                <h3 className="text-3xl font-bold text-brand-navy mb-4">Message Sent!</h3>
-                <p className="text-brand-slate">Thank you for reaching out. Our team will contact you shortly.</p>
-                <button onClick={() => setFormState('idle')} className="mt-8 text-brand-blue font-bold underline">Send another message</button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-brand-navy tracking-widest uppercase">Full Name</label>
-                    <input required type="text" placeholder="Your full name" className="w-full px-4 py-3 bg-brand-light-gray border border-transparent focus:border-brand-blue rounded-xl focus:outline-none transition-all" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-brand-navy tracking-widest uppercase">Email Address</label>
-                    <input required type="email" placeholder="your@email.com" className="w-full px-4 py-3 bg-brand-light-gray border border-transparent focus:border-brand-blue rounded-xl focus:outline-none transition-all" />
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-brand-navy tracking-widest uppercase">Company Name</label>
-                    <input required type="text" placeholder="Company name" className="w-full px-4 py-3 bg-brand-light-gray border border-transparent focus:border-brand-blue rounded-xl focus:outline-none transition-all" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-brand-navy tracking-widest uppercase">Service Interest</label>
-                    <select className="w-full px-4 py-3 bg-brand-light-gray border border-transparent focus:border-brand-blue rounded-xl focus:outline-none transition-all appearance-none cursor-pointer">
-                      <option>AI Automation</option>
-                      <option>Power Platform</option>
-                      <option>Data Engineering</option>
-                      <option>Software Development</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-brand-navy tracking-widest uppercase">Message</label>
-                  <textarea required rows={4} placeholder="Tell us about your project or challenge..." className="w-full px-4 py-3 bg-brand-light-gray border border-transparent focus:border-brand-blue rounded-xl focus:outline-none transition-all resize-none"></textarea>
-                </div>
-                <button 
-                  disabled={formState === 'loading'}
-                  type="submit" 
-                  className={`w-full py-4 bg-brand-blue text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand-blue/90 transform active:scale-95 transition-all ${formState === 'loading' ? 'opacity-70 cursor-wait' : ''}`}
-                >
-                  {formState === 'loading' ? 'Sending...' : 'Send Message'} <ArrowRight size={18} />
-                </button>
-                <p className="text-[10px] text-brand-slate text-center mt-4">Your information is kept private and never shared with third parties.</p>
-              </form>
-            )}
-          </AnimatePresence>
+        <div className="bg-white rounded-3xl shadow-2xl border border-brand-navy/5 overflow-hidden flex flex-col items-center text-center">
+          <div className="w-full h-56 overflow-hidden relative">
+            <img 
+              src="https://res.cloudinary.com/dzcinges8/image/upload/v1776899071/10_Consultation_bpvyhs.jpg" 
+              referrerPolicy="no-referrer" 
+              alt="Book a Consultation" 
+              className="w-full h-full object-cover" 
+            />
+            <div className="absolute inset-0 bg-brand-navy/30 backdrop-blur-[1px]"></div>
+          </div>
+          <div className="p-10 flex flex-col items-center">
+            <div className="w-20 h-20 bg-brand-sky rounded-full flex items-center justify-center text-brand-blue mb-8 -mt-20 relative z-10 border-8 border-white">
+              <Mail size={40} />
+            </div>
+            <h2 className="text-3xl font-bold text-brand-navy mb-4 tracking-tight">Consultation Form</h2>
+            <p className="text-brand-slate mb-10 leading-relaxed max-w-sm">
+              Please fill out our detailed consultation form to help us understand your needs better. It only takes 2 minutes.
+            </p>
+            <a 
+              href="https://forms.gle/TjzsFFNmTqF7SEz58" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full py-5 bg-brand-blue text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand-blue/90 transform active:scale-95 transition-all text-lg shadow-lg shadow-brand-blue/20"
+            >
+              Open Consultation Form <ArrowRight size={20} />
+            </a>
+            <p className="text-[10px] text-brand-slate mt-8">
+              Your information is handled strictly according to our privacy policy and Google's terms of service.
+            </p>
+          </div>
         </div>
       </section>
     </main>
