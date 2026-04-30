@@ -32,14 +32,23 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "glass-nav py-4" : "bg-transparent py-6"}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-            <Cpu className="text-white w-6 h-6" />
-          </div>
-          <span className={`text-xl font-bold tracking-tighter ${!scrolled && location.pathname === '/' ? 'text-white' : 'text-brand-navy'}`}>
-            LUFNET <span className="text-brand-blue">TECH</span>
-          </span>
-        </Link>
+        <div className="flex flex-col items-start gap-1">
+          <Link to="/" className="flex items-center group">
+            <img 
+              src="https://res.cloudinary.com/diblckeu1/image/upload/v1777559873/logo_asngcr.jpg" 
+              alt="LufNet Technologies" 
+              className="h-10 w-auto rounded-lg object-contain"
+              referrerPolicy="no-referrer"
+            />
+          </Link>
+          <Link to="/updates" className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10px] font-bold tracking-wider uppercase hover:bg-brand-blue/20 transition-all cursor-pointer">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+            </span>
+            Newest Update
+          </Link>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
@@ -111,10 +120,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
         <div className="col-span-1 md:col-span-1">
           <Link to="/" className="flex items-center gap-2 mb-6">
-            <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center">
-              <Cpu className="text-white w-5 h-5" />
-            </div>
-            <span className="text-xl font-bold tracking-tighter">LUFNET</span>
+            <img 
+              src="https://res.cloudinary.com/diblckeu1/image/upload/v1777559873/logo_asngcr.jpg" 
+              alt="LufNet Technologies" 
+              className="h-8 w-auto rounded-lg object-contain bg-white p-0.5"
+              referrerPolicy="no-referrer"
+            />
           </Link>
           <p className="text-white/60 text-sm leading-relaxed mb-6">
             Empowering organizations with intelligent technology solutions. From AI automation to custom software development.
@@ -189,9 +200,6 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-8"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-semibold mb-6 tracking-wider uppercase">
-              <ShieldCheck size={14} /> Intelligent IT Consulting
-            </div>
             <h1 className="text-5xl md:text-7xl text-white font-bold leading-[1.1] mb-8 tracking-tighter">
               Transforming Businesses with <span className="text-brand-blue">Intelligent</span> Technology
             </h1>
@@ -634,6 +642,26 @@ const Privacy = () => (
   </main>
 );
 
+const Updates = () => (
+  <main className="pt-32 min-h-screen bg-brand-light-gray">
+    <section className="py-24 max-w-7xl mx-auto px-6 text-center">
+      <div className="w-24 h-24 bg-brand-sky rounded-full flex items-center justify-center text-brand-blue mx-auto mb-8">
+        <Cpu size={48} />
+      </div>
+      <h1 className="text-5xl font-bold text-brand-navy mb-6 tracking-tight">Newest Updates</h1>
+      <p className="text-brand-slate text-lg max-w-2xl mx-auto leading-relaxed mb-12">
+        Stay tuned! This session will be updated with our latest news, project highlights, and AI innovations.
+      </p>
+      <div className="p-12 border-2 border-dashed border-brand-blue/20 rounded-3xl bg-white/50">
+        <p className="text-brand-slate/60 font-medium italic">No updates available at the moment. Please check back soon.</p>
+      </div>
+      <Link to="/" className="mt-12 inline-flex items-center gap-2 text-brand-blue font-bold hover:gap-4 transition-all">
+        <ArrowRight size={18} className="rotate-180" /> Back to Home
+      </Link>
+    </section>
+  </main>
+);
+
 const NotFound = () => (
   <main className="h-screen flex items-center justify-center bg-brand-navy text-white text-center px-6">
     <div className="absolute inset-0 tech-grid opacity-10"></div>
@@ -661,6 +689,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/industries" element={<Industries />} />
+            <Route path="/updates" element={<Updates />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
