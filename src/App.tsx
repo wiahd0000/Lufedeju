@@ -564,7 +564,10 @@ const Contact = () => {
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-brand-blue shadow-sm group-hover:scale-110 transition-transform"><Mail /></div>
               <div>
                 <p className="text-xs font-bold text-brand-blue tracking-widest uppercase mb-1">Email Us</p>
-                <a href="mailto:akinluf@lufnettechnologies.com" className="text-brand-navy font-bold text-sm md:text-lg hover:text-brand-blue transition-colors">akinluf@lufnettechnologies.com</a>
+                <div className="flex flex-col">
+                  <a href="mailto:info@lufnettechnologies.com" className="text-brand-navy font-bold text-sm md:text-lg hover:text-brand-blue transition-colors">info@lufnettechnologies.com</a>
+                  <a href="mailto:akinluf@lufnettechnologies.com" className="text-brand-navy font-bold text-sm md:text-lg hover:text-brand-blue transition-colors">akinluf@lufnettechnologies.com</a>
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-6 group">
